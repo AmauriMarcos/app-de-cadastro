@@ -112,7 +112,7 @@
                     console.log(error);
                 });    
                 
-                setTimeout(() => this.$router.push({ name: 'tabela' }), 1000);
+                setTimeout(() => this.$router.push({ name: 'tabela' }), 2000);
             }
         }
     }
