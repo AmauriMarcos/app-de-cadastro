@@ -26,13 +26,11 @@ router.get('/', (req, res) => {
         cpf: cpf
     });
     cliente.save()
-    .then((data) => {
-      res.send(data);
+    .then(() => {
+      res.status(200).json({'Cliente': 'Cliente adiconado com sucesso!'});
     })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while creating the User.",
-      });
+    .catch(() => {
+      res.status(400).send("Não foi possível salvar na base de dados");
     });
 });
 

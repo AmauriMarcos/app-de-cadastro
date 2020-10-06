@@ -3,7 +3,7 @@
         <div class="col-md-6">
            
             <h3 class="text-center">Formulário de Cadastro</h3>
-            <form method="POST" @submit.prevent="submitForm">
+            <form  @submit.prevent="submitForm">
                 <div class="form-group">
                     <label>Nome</label>
                     <input type="text" class="form-control" v-model="cliente.nome" required>
@@ -97,7 +97,7 @@
                 axios.post('https://cadastro-backend-app.herokuapp.com/clientes', {
                     data: this.cliente
                 }).then(()=>{     
-                    this.$router.push("/tabela"); 
+                     
                 /*     window.location.href="/tabela"; */
                     this.cliente = {
                         nome: '',
@@ -110,7 +110,9 @@
          
                 }).catch(function (error) {
                     console.log(error);
-                });                 
+                });    
+                
+                setTimeout(() => this.$router.push({ name: 'tabela' }), 1000);
             }
         }
     }
