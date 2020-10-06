@@ -52,7 +52,7 @@
             }
         },
         created(){
-            const url = `http://localhost:3000/clientes/edit/${this.$route.params.id}`
+            const url = `https://cadastro-backend-app.herokuapp.com/clientes/edit/${this.$route.params.id}`
             axios.get(url)
             .then((res) =>{
                 console.log(res.data)
@@ -61,7 +61,12 @@
         },
         methods: {
             editar(){
-                axios.patch(`http://localhost:3000/clientes/${this.$route.params.id}`, {
+                  if(this.cliente.cpf === ''){
+                    this.cliente.cpf = 'Não Informado'
+                    }else if(this.cliente.cnpj === ''){
+                        this.cliente.cnpj = 'Não Informado'
+                    }
+                axios.patch(`https://cadastro-backend-app.herokuapp.com/clientes/${this.$route.params.id}`, {
                     data: this.cliente
                 }).then((res) =>{
                     console.log(res);

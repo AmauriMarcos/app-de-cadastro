@@ -94,7 +94,7 @@
                     this.cliente.cnpj = 'Não Informado'
                 }
 
-                axios.post('http://localhost:3000/clientes', {
+                axios.post('https://cadastro-backend-app.herokuapp.com/clientes/', {
                     data: this.cliente
                 }).then(function(){     
                     

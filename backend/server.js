@@ -2,13 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require("cors");
-
+require('dotenv').config()
 
 const clientRoutes = require('./routes/clientes');
 
 const app = express();
+const db = process.env.MONGODB_URL; 
 
-mongoose.connect('mongodb+srv://cliente_database:cliente123@cadastro-app.5pqqc.mongodb.net/cadastro-app?retryWrites=true&w=majority',{
+mongoose.connect(db ,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex:true,
@@ -23,16 +24,7 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization'] */
 }));
 
-/* app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header(
-        'Access-Control-Allow-Headers', 
-        'Origin, X-Requested-Width, Content-Type, Accept, Authorization');
-    if(req.method === 'OPTIONS'){
-        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
-        return res.status(200).json({});
-    }
-}); */
+const port = process.env.PORT || 3000 ; 
 
 app.use('/clientes', clientRoutes);
 
@@ -49,4 +41,4 @@ app.use((error, req, res, next) =>{
     })
 });
 
-app.listen(3000, () => { console.log('Server is running...') });
+app.listen(port, () => { console.log('Server is running...') });

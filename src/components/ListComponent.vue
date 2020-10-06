@@ -47,7 +47,7 @@
             }
         },
         created() {
-            let apiURL = 'http://localhost:3000/clientes';
+            let apiURL = 'https://cadastro-backend-app.herokuapp.com/clientes/';
             axios.get(apiURL).then(res => {
                 this.clientes = res.data;
                 console.log(this.clientes);
@@ -57,7 +57,7 @@
         },
         methods: {
             removerCliente(id){
-                const apiURL = `http://localhost:3000/clientes/${id}`;
+                const apiURL = `https://cadastro-backend-app.herokuapp.com/clientes/${id}`;
                 const indexOfArrayItem = this.clientes.findIndex(i => i._id === id);
 
                 if (window.confirm("Tem certeza que deseja remover este item?")) {

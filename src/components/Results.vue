@@ -40,11 +40,25 @@ export default {
         }
     },
     created(){
-        axios.get(`http://localhost:3000/clientes/${this.$route.params.id}`)
+        axios.get(`https://cadastro-backend-app.herokuapp.com/clientes/${this.$route.params.id}`)
         .then((res) =>{
             this.clientes= res.data;
             console.log(this.clientes)
         }).catch(err => console.log(err));
+    },
+    methods:{
+          removerCliente(id){
+                const apiURL = `https://cadastro-backend-app.herokuapp.com/clientes/${id}`;
+                const indexOfArrayItem = this.clientes.findIndex(i => i._id === id);
+
+                if (window.confirm("Tem certeza que deseja remover este item?")) {
+                    axios.delete(apiURL).then(() => {
+                        this.clientes.splice(indexOfArrayItem, 1);
+                    }).catch(error => {
+                        console.log(error)
+                    });
+                }
+            },
     }
 }
 </script>
