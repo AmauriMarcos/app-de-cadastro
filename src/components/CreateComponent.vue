@@ -97,7 +97,7 @@
                 axios.post('https://cadastro-backend-app.herokuapp.com/clientes', {
                     data: this.cliente
                 }).then(function(){     
-                    
+                    this.$router.push("/tabela"); 
                     this.cliente = {
                         nome: '',
                         sobrenome: '',
@@ -111,8 +111,8 @@
                     console.log(error);
                 });
 
-                 /* window.location.href="/tabela"; */
-                this.$router.push("/tabela"); 
+                 window.location.href="/tabela";
+                
                                  
             }
         }
