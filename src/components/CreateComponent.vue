@@ -111,8 +111,8 @@
                     console.log(error);
                 });
 
-                 window.location.href="/tabela";
-                /* this.$router.push("/tabela");  */
+                 /* window.location.href="/tabela"; */
+                this.$router.push("/tabela"); 
                                  
             }
         }

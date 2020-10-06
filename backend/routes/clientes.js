@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 });
 
  router.post('/',  (req, res) => {
-     const {nome, sobrenome, email, telefone,cnpj, cpf} = req.body.data;
+     const {nome, sobrenome, email, telefone, cnpj, cpf} = req.body.data;
      const cliente =  new Cliente({
         _id: new mongoose.Types.ObjectId(),
         nome: `${nome} ${sobrenome}`,
@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
 
 
 router.get('/:search', (req, res) =>{
-    var regex = new RegExp(req.params.search, 'i');  // 'i' makes it case insensitive
+    var regex = new RegExp(req.params.search, 'i'); 
     return Cliente.find({nome: regex}, function(err,q){
         return res.send(q);
     });
