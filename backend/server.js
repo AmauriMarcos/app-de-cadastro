@@ -18,11 +18,11 @@ mongoose.connect(db ,{
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.json()); 
-app.use(cors({
-    /* origin: 'http://localhost:8080',
+app.use(cors());
+
+ /* origin: 'http://localhost:8080',
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'] */
-}));
 
 const port = process.env.PORT || 3000 ; 
 
