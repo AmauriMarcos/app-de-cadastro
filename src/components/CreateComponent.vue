@@ -96,7 +96,7 @@
 
                 axios.post('https://cadastro-backend-app.herokuapp.com/clientes', {
                     data: this.cliente
-                }).then(function(){     
+                }).then(()=>{     
                     this.$router.push("/tabela"); 
                 /*     window.location.href="/tabela"; */
                     this.cliente = {
@@ -107,15 +107,10 @@
                         cnpj: '',
                         cpf: ''
                     }                 
-
-                     
+         
                 }).catch(function (error) {
                     console.log(error);
-                });
-
-                 
-               
-                                 
+                });                 
             }
         }
     }
