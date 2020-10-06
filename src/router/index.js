@@ -7,22 +7,22 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: () => import("../components/CreateComponent")
+    component: () => import("../components/Cadastro")
   },
   {
     path: "/tabela",
     name: "tabela",
-    component: () => import("../components/ListComponent")
+    component: () => import("../components/Tabela")
   },
   {
     path: "/edit/:id",
     name: "edit",
-    component: () => import("../components/EditComponent")
+    component: () => import("../components/EditarCadastro")
   },
   {
     path: "/results/:id",
     name: "results",
-    component: () => import("../components/Results")
+    component: () => import("../components/ResultadoPesquisa")
   }
 ];
 
