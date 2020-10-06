@@ -98,6 +98,7 @@
                     data: this.cliente
                 }).then(function(){     
                     this.$router.push("/tabela"); 
+                /*     window.location.href="/tabela"; */
                     this.cliente = {
                         nome: '',
                         sobrenome: '',
@@ -107,12 +108,13 @@
                         cpf: ''
                     }                 
 
+                     
                 }).catch(function (error) {
                     console.log(error);
                 });
 
-                 window.location.href="/tabela";
-                
+                 
+               
                                  
             }
         }
